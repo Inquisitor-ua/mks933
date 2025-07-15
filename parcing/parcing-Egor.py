@@ -1,5 +1,6 @@
 import bs4
 import requests
+import time
 
 def parse_description(url):
     response = requests.get(url)
@@ -26,4 +27,4 @@ for link in range(1, 7):
         print(f"{num}. {name.text}-{price.text}")
         print(description, end='\n\n')
         num += 1
-        
+        time.sleep(3)
