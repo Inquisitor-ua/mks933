@@ -3,7 +3,7 @@ import requests  #anfragen...
 
 url = "https://quotes.toscrape.com"
 
-work = requests.Session()
+work = requests.Session() #merken
 
 work.get(url) #anfrage
 response = work.get("https://quotes.toscrape.com/login")
