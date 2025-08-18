@@ -11,6 +11,4 @@ soup = bs4.BeautifulSoup(response.content, "lxml")  #content == code(html)
 json_file = soup.find("script")
 data = json.loads(json_file.text)      #load == laden
 for a in data["itemListElement"]:
-    print(a["name"])
-    print("-")
-    print(a["offers"]["price"])
+    print(f"{a["name"]} - {a["offers"]["price"]}")
