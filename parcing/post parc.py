@@ -14,3 +14,4 @@ print(csrf)
 data_my = {"csrf_token": csrf, "username": "hello", "password": "world"}
 response = work.post("https://quotes.toscrape.com/login", data=data_my)
 print(response.text)
+#get == anfrage, post ==
