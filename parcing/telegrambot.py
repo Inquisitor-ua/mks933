@@ -3,9 +3,9 @@ TOKEN = "8492962669:AAGSr21A8htjmfV6nSHtpiwkxx5I8fOeZmw"
 
 bot = telebot.TeleBot(TOKEN)
 
-# @bot.message_handler(commands=["start", "home"])
-# def start(message):
-#     bot.reply_to(message, "Hallo!")
+@bot.message_handler(commands=["start", "home"])
+def start(message):
+    bot.reply_to(message, "Hallo!")
 
 
 @bot.message_handler(content_types=["text"])
