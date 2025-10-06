@@ -1,7 +1,17 @@
+import json
 import telebot
+import bs4
+import requests
 from telebot import types
 TOKEN = "7732163290:AAGu2Iyjz98t-Nx4UJ71Z5RBB0z7DDTVVeU"
 bot = telebot.TeleBot(TOKEN)
+INFO = {"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/137.0.0.0 Safari/537.36 OPR/121.0.0.0"}
+
+
+def make_html(url):
+    response = requests.get(url, headers=INFO)
+    html = bs4.BeautifulSoup(response.text, 'lxml')
+    return html
 
 def make_markup(*args, one_time = False):
     markup = types.ReplyKeyboardMarkup(resize_keyboard=True, one_time_keyboard=one_time)
@@ -17,7 +27,14 @@ def start(message):
 @bot.message_handler(content_types=['text'])
 def main_menu(message):
     if message.text == 'Купить телефон':
-        msg = bot.send_message(message.chat.id, 'Каталог:\n1. Iphone 17\n2. Pixel 9\n3. Samsung S25', reply_markup=make_markup('Iphone 17', "Pixel 9", 'Samsung S25', one_time=True))
+        html = make_html('https://comfy.ua/smartfon')
+        json_file = html.find("script")
+        print(json_file)
+        data = json.loads(json_file.text)      #load == laden
+        catalog_list = ''
+        for a in data["itemListElement"]:
+            catalog_list += f"{a['name']} - {a['offers']['price']}\n"
+        msg = bot.send_message(message.chat.id, f'Каталог:\n{catalog_list}', reply_markup=make_markup('Iphone 17', "Pixel 9", 'Samsung S25', one_time=True))
         bot.register_next_step_handler(msg, catalog)
     elif message.text == 'Мои заказы':
         ...
