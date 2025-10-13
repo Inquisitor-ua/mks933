@@ -7,7 +7,7 @@ bot = telebot.TeleBot(TOKEN)
 def make_markup(*args):
     markup = types.ReplyKeyboardMarkup(resize_keyboard=True)
     for btn in args:
-        item = types.KeyboardButton(btn)                              ⚠️Lambda⚠️
+        item = types.KeyboardButton(btn)
         markup.add(item)
     return markup
 

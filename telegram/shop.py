@@ -3,7 +3,7 @@ import telebot
 import bs4
 import requests
 from telebot import types
-TOKEN = "7732163290:AAGu2Iyjz98t-Nx4UJ71Z5RBB0z7DDTVVeU"
+TOKEN = "8492962669:AAGSr21A8htjmfV6nSHtpiwkxx5I8fOeZmw"
 bot = telebot.TeleBot(TOKEN)
 INFO = {"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/137.0.0.0 Safari/537.36 OPR/121.0.0.0"}
 
