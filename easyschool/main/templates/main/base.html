@@ -1,0 +1,28 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}{% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'main/css/base.css' %}">
+    {% block links %}{% endblock %}
+</head>
+<body>
+    <header>
+        <a href="{% url 'homepage' %}">Zur Startseite</a>
+        <a href="{% url 'lesson_plan' %}">Zum Stundenplan</a>
+        <a href="{% url 'informations' %}">Mehr Informationen</a>
+        <h1>EasySchool</h1>
+    </header>
+
+    <main>
+        {% block content %}{% endblock %}
+    </main>
+
+    <footer>
+        {% block footer %}{% endblock %}
+        <h2>All rights reserved</h2>
+    </footer>
+</body>
+</html>
