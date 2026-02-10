@@ -10,13 +10,13 @@
 </head>
 <body>
     <header>
-        <h1>EasySchool</h1>
+        <h1 class="name-of-site">EasySchool</h1>
+        <div class="navigation">
+            <a class="nav-href" href="{% url 'homepage' %}">Zur Startseite</a>
+            <a class="nav-href" href="{% url 'lesson_plan' %}">Zum Stundenplan</a>
+            <a class="nav-href" href="{% url 'informations' %}">Mehr Informationen</a> 
     </header>
     <main>
-        <div class="left_side">
-            <a href="{% url 'homepage' %}">Zur Startseite</a>
-            <a href="{% url 'lesson_plan' %}">Zum Stundenplan</a>
-            <a href="{% url 'informations' %}">Mehr Informationen</a>
         </div>
         <div class="right_side">
             {% block content %}{% endblock %}

@@ -4,5 +4,32 @@ body{
     flex-direction: row;
     align-items: stretch;
     margin: 0;
+    height: 100vh;
 }
 
+header{
+    background-color: yellow;
+    border-right: 1px black;
+    box-shadow: 0px 0px 10px black;
+}
+
+.name-of-site{
+    margin: 20px 20px;
+}
+
+.navigation{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 130%;
+}
+
+main{
+    margin: 30px;
+    flex: 1;
+}
+
+.nav-href{
+    margin: 15px 10px;
+    text-decoration: none;
+}
