@@ -9,7 +9,7 @@
     {% block links %}{% endblock %}
 </head>
 <body>
-    <header>
+    <header>{% block header %}{% endblock %}
         <h1 class="name-of-site">EasySchool</h1>
         <div class="navigation">
             <a class="nav-href" href="{% url 'homepage' %}">Zur Startseite</a>

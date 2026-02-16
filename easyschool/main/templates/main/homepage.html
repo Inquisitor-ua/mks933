@@ -11,6 +11,28 @@ Startseite
 <link rel="stylesheet" href="{% static 'main/css/homepage.css' %}">
 {% endblock %}
 
-{% block content %}
-<p> ipsum dolor sit, amet consectetur adipisicing elit. Ab dolorum, culpa incidunt error quia reiciendis enim dignissimos, impedit ipsa aperiam cum deleniti nemo voluptate aliquid vel voluptates sit, exercitationem sequi? </p>
+
+{% block header %}
+<h2>News</h2>
 {% endblock %}
+
+
+{% block content %}
+<div class="news_homepage">
+    <div>
+        <h2>new1</h2>
+    </div>
+</div>
+<div class="news_homepage">
+    <div>
+        <h2>new2</h2>
+    </div>
+</div>
+<div class="news_homepage">
+    <div>
+        <h2>new3</h2>
+        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Reiciendis incidunt, commodi iure, quaerat ab, est omnis rem odit quo eos repudiandae sint repellat nobis deserunt obcaecati! Doloribus repudiandae soluta tenetur?</p>
+    </div>
+</div>
+{% endblock %}
+
