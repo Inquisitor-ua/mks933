@@ -13,26 +13,25 @@ Startseite
 
 
 {% block header %}
-<h2>News</h2>
+<h2>Neuigkeiten</h2>
 {% endblock %}
 
 
 {% block content %}
-<div class="news_homepage">
-    <div>
-        <h2>new1</h2>
-    </div>
-</div>
-<div class="news_homepage">
-    <div>
-        <h2>new2</h2>
-    </div>
-</div>
-<div class="news_homepage">
-    <div>
-        <h2>new3</h2>
-        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Reiciendis incidunt, commodi iure, quaerat ab, est omnis rem odit quo eos repudiandae sint repellat nobis deserunt obcaecati! Doloribus repudiandae soluta tenetur?</p>
-    </div>
-</div>
-{% endblock %}
+    {% if news %}
 
+        {% for new in news %}
+            <div class="news_homepage">
+                <div>
+                    <h2>{{ new.header }}</h2>
+                    <p>{{ new.text }}</p>
+                    <img src="{{ new.image.url }}">
+                </div>
+            </div>
+        {% endfor %}
+    {% else %}
+        <div>
+            Momentan keine Neuigkeiten.
+        </div>
+    {% endif %}
+{% endblock %}

@@ -1,9 +1,11 @@
 from django.shortcuts import render
 from django.http import HttpResponse
+from .models import News
 
 # Create your views here.
 def homepage(request):
-    context = {"title": "Hauptseite", "header": "Tag der Hauptseite"}
+    news = News.objects.all()
+    context = {"title": "Hauptseite", "header": "Tag der Hauptseite", "news": news}
     return render(request, "main/homepage.html", context)
 
 def lesson_plan(request):

@@ -1,9 +1,27 @@
 {% extends 'main/base.html' %}
 
+{% load static %}
+
+{% block header %}
+<h2>Infos</h2>
+{% endblock %}
+
 {% block title %}
 Informationen
 {% endblock %}
 
-{% block content %}
+{% block links %}
+<link rel="stylesheet" href="{% static 'main/css/informations.css' %}">
+{% endblock %}
 
+
+{% block content %}
+<h1>
+    Informationen
+</h1>
+<p>
+        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Minus perferendis, veniam odio officia ducimus voluptas, ipsa atque, necessitatibus esse beatae maxime. Doloribus doloremque consequatur possimus nihil similique atque distinctio rerum!
+    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Repellendus, doloremque minima? Accusantium ab quis, possimus dolore ipsum, illum magnam cum fugit, eligendi cumque eaque explicabo maiores recusandae reiciendis maxime alias. Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur enim debitis tempora minus ipsum itaque! Delectus vel voluptas corporis laborum nostrum illo? Deserunt quisquam distinctio nisi rerum quae repellat fugiat.
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima reiciendis magni itaque sed omnis accusamus possimus maxime architecto aspernatur adipisci, rem, pariatur aliquam, a ducimus incidunt quaerat! Sunt, consectetur blanditiis!
+</p>
 {% endblock %}
