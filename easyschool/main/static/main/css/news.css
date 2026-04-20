@@ -1,3 +1,23 @@
 header h2{
     margin-left: 20px;
 }
+.back-button{
+    position: fixed;
+    font-size: 24px;
+    width: fit-content;
+    height: fit-content;
+    z-index: 1000;
+    background-color: rgba(255, 255, 255, 0.602);
+    transition: all 0.3s ease;
+    padding: 10px;
+    border-radius: 5px;
+    margin-top: -30px;
+}
+.back-button:hover{
+    background-color: rgba(255, 255, 255, 0.901);
+    color: rgb(102, 102, 102);
+}
+.back-button a{
+    color: grey;
+    text-decoration: none;
+}
