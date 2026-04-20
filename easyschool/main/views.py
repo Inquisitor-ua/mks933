@@ -1,6 +1,6 @@
 from django.shortcuts import render, get_object_or_404
 from django.http import HttpResponse
-from .models import News
+from .models import News, Schoolclasses
 
 # Create your views here.
 def homepage(request):
@@ -20,3 +20,8 @@ def news(request, news_pk):
     new = get_object_or_404(News, pk=news_pk)
     context = {"new": new}
     return render(request, "main/news.html", context)
+
+def classes(request):
+    classes = Schoolclasses.objects.all()
+    context = {"title": "Hauptseite", "header": "Klassen", "classes": classes}
+    return render(request, "main/classes.html", context)
