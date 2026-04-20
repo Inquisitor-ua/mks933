@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from django.http import HttpResponse
 from .models import News
 
@@ -15,3 +15,8 @@ def lesson_plan(request):
 def informations(request):
     context = {"title": "Infos", "header": "Anmeldung"}
     return render(request, "main/informations.html", context)
+
+def news(request, news_pk):
+    new = get_object_or_404(News, pk=news_pk)
+    context = {"new": new}
+    return render(request, "main/news.html", context)

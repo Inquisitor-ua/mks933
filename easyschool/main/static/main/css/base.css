@@ -1,8 +1,5 @@
 body{
     background-color: rgb(255, 170, 228);
-    display: flex;
-    flex-direction: row;
-    align-items: stretch;
     margin: 0;
     height: 100vh;
 }
@@ -11,6 +8,9 @@ header{
     background-color: rgb(238, 202, 222);
     border-right: 1px black;
     box-shadow: 0px 0px 10px black;
+    position: fixed;
+    height: 100%;
+    width: 200px;
 }
 
 .name-of-site{
@@ -25,11 +25,20 @@ header{
 }
 
 main{
-    margin: 30px;
-    flex: 1;
+    margin-left: 230px;
+    margin-right: 30px;
 }
 
 .nav-href{
     margin: 15px 10px;
     text-decoration: none;
+}
+
+.right_side{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 30px;
+    gap: 30px;
+    padding-top: 30px;
+    padding-bottom: 30px;
 }

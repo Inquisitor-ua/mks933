@@ -26,6 +26,7 @@ Startseite
                     <h2>{{ new.header }}</h2>
                     <p>{{ new.text }}</p>
                     <img src="{{ new.image.url }}">
+                    <a class="detailes-button" href="{% url "news" news_pk=new.pk %}">Details</a>
                 </div>
             </div>
         {% endfor %}
