@@ -13,13 +13,13 @@
 
 
 {% block header %}
-
+<h2>Klassen</h2>
 {% endblock %}
 
 
 {% block content %}
 <h1>Die Klassen</h1>
     {% for class in classes %}
-        <div>{{ class.class_name }} Level: {{ class.class_level }}</div>
+        <div>{{ class.class_name }} Level: {{ class.class_level }} <a class="tag_a_class" href="">Klasseninfos</a></div>
     {% endfor %}
 {% endblock %}
