@@ -1,4 +1,5 @@
 from django.db import models
+from django.contrib.auth.models import AbstractUser
 
 # Create your models here.
 class News(models.Model):
@@ -15,3 +16,9 @@ class Schoolclasses(models.Model):
     def __str__(self):
         return f"{self.class_name}-{self.class_level}"
 
+class Customuser(AbstractUser):
+    biography = models.TextField(verbose_name='Bio of user')
+    phone_number = models.CharField(max_length=50, verbose_name='Ph Num of user')
+    birthday_date = models.DateField(verbose_name='Birthday date of user')
+    def __str__(self):
+        return f"{self.username}"

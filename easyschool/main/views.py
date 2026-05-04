@@ -25,3 +25,8 @@ def classes(request):
     classes = Schoolclasses.objects.all()
     context = {"title": "Hauptseite", "header": "Klassen", "classes": classes}
     return render(request, "main/classes.html", context)
+
+def classinfos(request, classinfos_pk):
+    classinfos = get_object_or_404(Schoolclasses, pk=classinfos_pk)
+    context = {"classinfos": classinfos}
+    return render(request, "main/classinfos.html", context)

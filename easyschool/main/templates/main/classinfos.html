@@ -1,0 +1,20 @@
+{% extends 'main/base.html' %}
+
+{% load static %}
+
+{% block title %}
+Stundenplan
+{% endblock %}
+
+{% block header %}
+<h2>{{ classinfos.class_name }}</h2>
+{% endblock %}
+
+{% block links %}
+<link rel="stylesheet" href="{% static 'main/css/classinfos.css' %}">
+{% endblock %}
+
+{% block content %}
+{{ classinfos.class_name }}
+{{ classinfos.class_level }}
+{% endblock %}
