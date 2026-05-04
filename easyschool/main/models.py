@@ -22,3 +22,5 @@ class Customuser(AbstractUser):
     birthday_date = models.DateField(verbose_name='Birthday date of user')
     def __str__(self):
         return f"{self.username}"
+
+    
