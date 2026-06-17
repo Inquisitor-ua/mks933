@@ -23,5 +23,7 @@
 </svg> Back</a></div>
 <h2>{{ new.header }}</h2>
 <p>{{ new.text }}</p>
-<img src="{{ new.image.url }}">
+{% if new.image %}
+  <img src="{{ new.image.url }}">
+{% endif %}
 {% endblock %}

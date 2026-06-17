@@ -18,14 +18,18 @@ Startseite
 
 
 {% block content %}
+    {% if user.is_staff %}
+        <a href="{% url 'add_new' %}"> + Add new </a>
+    {% endif %}
     {% if news %}
-
         {% for new in news %}
             <div class="news_homepage">
                 <div>
                     <h2>{{ new.header }}</h2>
                     <p>{{ new.text }}</p>
-                    <img src="{{ new.image.url }}">
+                    {% if new.image %}
+                        <img src="{{ new.image.url }}">
+                    {% endif %}
                     <a class="detailes-button" href="{% url 'news' news_pk=new.pk %}">Details</a>
                 </div>
             </div>

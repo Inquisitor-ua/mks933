@@ -5,12 +5,15 @@ body{
 }
 
 header{
+    display: flex;
+    flex-direction: column;
     background-color: rgb(238, 202, 222);
     border-right: 1px black;
     box-shadow: 0px 0px 10px black;
     position: fixed;
     height: 100%;
     width: 200px;
+    justify-content: space-between;
 }
 
 .name-of-site{
@@ -41,4 +44,27 @@ main{
     gap: 30px;
     padding-top: 30px;
     padding-bottom: 30px;
+}
+
+.login2{
+    margin-left: 20px;
+    margin-bottom: 20px;
+    font-size: 20px;
+    text-decoration: none;
+}
+
+.register{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.login{
+    margin-left: 20px;
+    font-size: 20px;
+    text-decoration: none;
+}
+
+.account{
+    font-size: 20px;
 }

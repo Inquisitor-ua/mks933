@@ -1,0 +1,29 @@
+{% extends 'main/base.html' %}
+
+{% load static %}
+
+{% block title %}
+
+{% endblock %}
+
+
+{% block links %}
+<link rel="stylesheet" href="{% static 'main/css/account.css' %}">
+{% endblock %}
+
+
+{% block header %}
+    {% if user.is_authenticated %}    
+        <h2>Account</h2>
+    {% else %}
+        <h2>Login</h2>
+    {% endif %}
+{% endblock %}
+
+
+{% block content %}
+    <h1>{{ user.username }}</h1>
+    <h3>{{ user.biography }}</h3>
+    <h3>{{ user.phone_number }}</h3>
+    <h3>{{ user.birthday_date }}</h3>
+{% endblock %}
