@@ -20,13 +20,13 @@
                 <a class="nav-href" href="{% url 'classes' %}">Klassen</a>
             </div>
         </div>
-        <div class="register">
+        <div class="register navigation">
             {% if user.is_authenticated %}
-                <a class="login" href="{% url 'account' %}">Dein Konto</a>
-                <a class="login2" href="{% url 'logout' %}">Ausloggen</a>
+                <a class="login nav-href" href="{% url 'account' %}">Dein Konto</a>
+                <a class="login2 nav-href" href="{% url 'logout' %}">Ausloggen</a>
             {% else %}
-                <a class="login" href="{% url 'login' %}">Anmelden</a>
-                <a class="login2" href="{% url 'register' %}">Registrieren</a>
+                <a class="login nav-href" href="{% url 'login' %}">Anmelden</a>
+                <a class="login2 nav-href" href="{% url 'register' %}">Registrieren</a>
             {% endif %}
         </div>
     </header>
