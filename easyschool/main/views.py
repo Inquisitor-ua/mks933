@@ -22,7 +22,7 @@ def informations(request):
     return render(request, "main/informations.html", context)
 
 
-def news(request, news_pk): 
+def news(request, news_pk):
     new = get_object_or_404(News, pk=news_pk)
     context = {"new": new}
     return render(request, "main/news.html", context)
@@ -126,3 +126,8 @@ def add_new(request):
     form = AddNewForm()
     context = {"form": form,"form_message": message}
     return render(request, "main/add_new.html", context)
+
+
+def test():
+    print("Test")
+    print("☺☻♥")
