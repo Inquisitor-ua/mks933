@@ -126,3 +126,6 @@ def add_new(request):
     form = AddNewForm()
     context = {"form": form,"form_message": message}
     return render(request, "main/add_new.html", context)
+
+def test():
+    print("Test")
