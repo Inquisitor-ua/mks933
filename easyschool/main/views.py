@@ -1,7 +1,7 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from django.http import HttpResponse
 from .models import News, Schoolclasses, Customuser
-from .forms import AddNewForm, LoginForm
+from .forms import AddNewForm, LoginForm, RegisterForm
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login, logout
 
@@ -11,55 +11,80 @@ def homepage(request):
     context = {"title": "Hauptseite", "header": "Tag der Hauptseite", "news": news}
     return render(request, "main/homepage.html", context)
 
+
 def lesson_plan(request):
     context = {"title": "Stundenplan", "header": "Tag des Stundenplans"}
     return render(request, "main/lesson_plan.html", context)
 
+
 def informations(request):
     context = {"title": "Infos", "header": "Anmeldung"}
     return render(request, "main/informations.html", context)
+
 
 def news(request, news_pk):
     new = get_object_or_404(News, pk=news_pk)
     context = {"new": new}
     return render(request, "main/news.html", context)
 
+
 def classes(request):
     classes = Schoolclasses.objects.all()
     context = {"title": "Hauptseite", "header": "Klassen", "classes": classes}
     return render(request, "main/classes.html", context)
+
 
 def classinfos(request, classinfos_pk):
     classinfos = get_object_or_404(Schoolclasses, pk=classinfos_pk)
     context = {"classinfos": classinfos}
     return render(request, "main/classinfos.html", context)
 
+
 def account(request):
     account = request.user
     context = {"account": account}
     return render(request, "main/account.html", context)
 
-def register(request):
-    ...
 
-def login(request):
+def register(request):
+    message = ""
+    if request.method == "POST":
+        form = RegisterForm(request.POST)
+        if form.is_valid():
+            username = form.cleaned_data["username"]
+            password = form.cleaned_data["password"]
+            password2 = form.cleaned_data["password2"]
+            try:
+                user_obj = Customuser.objects.get(username = username)
+                message = "Dieses Konto exestiert bereits"
+            except Exception as e:
+               if password == password2:
+                   user = Customuser(username = username)
+                   user.set_password(password)
+                   user.save()
+                   login(request, user)
+                   return redirect("homepage")
+               else:
+                   message = "Passwörter müssen identisch sein"
+    form = RegisterForm()
+    context = {"form": form, "form_message": message}
+    return render(request, "main/register.html", context)
+
+
+def log_in(request):
     message = ""
     if request.user.is_authenticated:
         return redirect("homepage")
     if request.method == "POST":
         form = LoginForm(request.POST)
-        print("POST")
         if form.is_valid():
             username = form.cleaned_data["username"]
             password = form.cleaned_data["password"]
-            print("valid")
             try:
                 user_obj = Customuser.objects.get(username = username)
                 user_a = authenticate(username = username, password = password)
-                print("authenticate")
                 if user_a is not None:
                     login(request, user_a)
-                    print("login")
                     return redirect("homepage")
                 else:
                     message = "Passwort ist falsch"
@@ -71,9 +96,11 @@ def login(request):
     context = {"form": form, "form_message": message}
     return render(request, "main/log_in.html", context)
 
+
 def log_out(request):
     logout(request)
     return redirect("homepage")
+
 
 
 def add_new(request):
