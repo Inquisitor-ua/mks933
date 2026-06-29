@@ -35,6 +35,15 @@ main{
 .nav-href{
     margin: 15px 10px;
     text-decoration: none;
+    border: 1px black solid;
+    border-radius: 10px;
+    transition: all 0.3s ease;
+    padding: 10px 20px;
+    width: 70%;
+}
+
+.nav-href:hover{
+    transform: scale(1.05);
 }
 
 .right_side{
