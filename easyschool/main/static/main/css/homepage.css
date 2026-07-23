@@ -25,5 +25,19 @@ image {
 }
 
 .detailes-button{
-    font-size: 30px;
+    color: rgb(14, 154, 154);
+    background-color: rgb(50, 198, 198);
+    padding: 7px;
+    margin: 5px;
+    border: 1px black solid;
+    border-radius: 10px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    font-size: 20px;
+}
+
+.detailes-button:hover{
+    background-color: rgb(109, 224, 224);
+    color: rgb(39, 193, 193);
+    transform: scale(1.05);
 }
