@@ -22,3 +22,8 @@ header h2{
     color: rgb(186, 12, 175);
     text-decoration: none;
 }
+
+img{
+    margin-left: 300px;
+    margin-right: 700px;
+}
