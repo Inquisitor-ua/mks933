@@ -15,10 +15,15 @@ Registrieren
 {% endblock %}
 
 {% block content %}
-<form method="post" enctype="multipart/form-data">
-    {% csrf_token %}
-{{ form }}
-<button type="submit">Registrieren</button>
-</form>
-{{ form_message }}
+<div class="form-block">
+    <p class="form-title">Bei Konto anmelden</p>
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.username }}
+        {{ form.password }}
+        {{ form.password2 }}
+        <button type="submit">Registrieren</button>
+    </form>
+    {{ form_message }}
+</div>
 {% endblock %}
