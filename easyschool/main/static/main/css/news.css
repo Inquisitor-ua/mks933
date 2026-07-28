@@ -2,7 +2,7 @@ header h2{
     margin-left: 20px;
 }
 .back-button{
-    background-color: rgb(255, 123, 213);
+    background-color: rgb(253, 153, 221);
     color: rgb(135, 8, 170);
     position: fixed;
     font-size: 24px;
@@ -14,9 +14,10 @@ header h2{
     border-radius: 5px;
     margin-top: -30px;
 }
-/* .back-button:hover{
-    
-} */
+.back-button:hover{
+    background-color: rgb(255, 118, 212);
+        color: rgb(138, 34, 167);
+}
 .back-button a{
     color: rgb(145, 9, 136);
     text-decoration: none;
