@@ -23,7 +23,7 @@
         <div class="register navigation">
             {% if user.is_authenticated %}
                 <a class="login nav-href name-of-site" href="{% url 'account' %}">Dein Konto</a>
-                <a class="login2 nav-href name-of-site" href="{% url 'logout' %}">Ausloggen</a>
+                <a class="login2 nav-href name-of-site" id="logout">Ausloggen</a>
             {% else %}
                 <a class="login nav-href name-of-site" href="{% url 'login' %}">Anmelden</a>
                 <a class="login2 nav-href name-of-site" href="{% url 'register' %}">Registrieren</a>
@@ -36,5 +36,37 @@
             {% block content %}{% endblock %}
         </div>
     </main>
+
+    <div class="logout-window-wrapper" id="logout-window-wrapper" style="display: none;">
+        <div class="logout-window">
+            <h2>Точно хотите выйти?</h2>
+            <div class="buttons-row">
+                <button type="button" id="decline-button">Нет</button>
+                <a href="{% url 'logout' %}">Да</a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const logoutButton = document.querySelector('#logout');
+        const declineButton = document.querySelector('#decline-button');
+        const logoutWindowWrapper = document.querySelector('#logout-window-wrapper');
+
+        logoutButton.addEventListener('click', () => {
+            console.log("Клик");
+            logoutWindowWrapper.style.display = 'flex';
+        })
+        const closeModal = () => {
+            logoutWindowWrapper.style.display = 'none';
+        };
+
+        declineButton.addEventListener('click', closeModal);
+
+        logoutWindowWrapper.addEventListener('click', (e) => {
+            if (e.target === logoutWindowWrapper) {
+                closeModal();
+            }
+        });
+    </script>
 </body>
 </html>
