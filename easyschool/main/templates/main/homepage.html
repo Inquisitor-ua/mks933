@@ -19,14 +19,14 @@ Startseite
 
 {% block content %}
     {% if user.is_staff %}
-        <a href="{% url 'add_new' %}"> + Add new </a>
+        <a href="{% url 'add_new' %}" class="add_new"> + Add new </a>
     {% endif %}
     {% if news %}
         {% for new in news %}
             <div class="news_homepage">
                 <div>
-                    <h2>{{ new.header }}</h2>
-                    <p>{{ new.text }}</p>
+                    <h2 class="new_text">{{ new.header }}</h2>
+                    <p class="new_text">{{ new.text }}</p>
                     {% if new.image %}
                         <img src="{{ new.image.url }}">
                     {% endif %}

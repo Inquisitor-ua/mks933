@@ -42,8 +42,33 @@ def classinfos(request, classinfos_pk):
 
 def account(request):
     account = request.user
-    context = {"account": account}
-    return render(request, "main/account.html", context)
+    message = ""
+    if request.method == "POST":
+        form = AddNewForm(request.POST, request.FILES)
+        if form.is_valid():
+            try:
+                name = form.cleaned_data["name"]
+                text = form.cleaned_data["text"]
+                try:
+                    image = request.FILES ["image"]
+                    News.objects.create(header = name, text = text, image = image).save()
+                except Exception as e:
+                    print(f"System Fehler: {e}")
+                    News.objects.create(header = name, text = text).save()
+                return redirect("homepage")
+            except Exception as e:
+                print(f"System Fehler: {e}")
+                message = "Fehlgeschlagen"
+        else:
+            message = "Fehlgeschlagen"
+    data = {"name_user": account.first_name, 
+            "birthday_date_user": account.birthday_date, 
+            "phone_user": account.phone_number, 
+            "password_user": account.password, 
+            "bio_user": account.biography}
+    form = AddNewForm(initial = data)
+    context = {"account": account, "form": form}
+    return render(request, "main/account.html", context, message)
 
 
 def register(request):
@@ -128,6 +153,6 @@ def add_new(request):
     return render(request, "main/add_new.html", context)
 
 
-def test():
-    print("Test")
-    print("☺☻♥")
+# def test():
+#     print("Test")
+#     print("☺☻♥")

@@ -41,3 +41,30 @@ image {
     color: rgb(39, 193, 193);
     transform: scale(1.05);
 }
+
+.add_new{
+    background-color: rgb(253, 153, 221);
+    color: rgb(135, 8, 170);
+    position: fixed;
+    font-size: 24px;
+    width: fit-content;
+    height: fit-content;
+    z-index: 1000;
+    transition: all 0.3s linear;
+    padding: 10px;
+    border-radius: 10px;
+    margin-top: -30px;
+    text-decoration: none;
+    margin: 15px;
+    margin-left: 1505px;
+    border: 1px black solid;
+}
+        
+.add_new:hover{
+    background-color: rgb(255, 118, 212);
+    color: rgb(138, 34, 167);
+}
+
+.new_text{
+    padding: 1px;
+}

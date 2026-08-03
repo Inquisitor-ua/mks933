@@ -22,8 +22,17 @@
 
 
 {% block content %}
-    <h1>{{ user.username }}</h1>
-    <h3>{{ user.biography }}</h3>
-    <h3>{{ user.phone_number }}</h3>
-    <h3>{{ user.birthday_date }}</h3>
+<div class="form-block">
+    <p class="form-title">Bei Konto anmelden</p>
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.name_user }}
+        {{ form.birthday_date_user }}
+        {{ form.phone_user }}
+        {{ form.password_user }}
+        {{ form.bip_user }}
+        <button type="submit">Registrieren</button>
+    </form>
+    {{ form_message }}
+</div>
 {% endblock %}
