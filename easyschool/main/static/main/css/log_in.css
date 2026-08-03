@@ -38,7 +38,7 @@ form input{
 }
 input:focus {
     outline: none;
-    background-color: #7c0000;
+    background-color: #aeaeae;
 }
 form button{
     padding: 10px 20px;

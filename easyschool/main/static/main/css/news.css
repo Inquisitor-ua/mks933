@@ -2,6 +2,7 @@ header h2{
     margin-left: 20px;
 }
 .back-button{
+    border: 1px black solid;
     background-color: rgb(253, 153, 221);
     color: rgb(135, 8, 170);
     position: fixed;
@@ -26,4 +27,8 @@ header h2{
 img{
     margin-left: 300px;
     margin-right: 700px;
+}
+
+.news_homepage{
+    padding: 15px;
 }

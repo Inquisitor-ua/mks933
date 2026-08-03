@@ -22,8 +22,10 @@
 
 
 {% block content %}
-    <h1>{{ user.username }}</h1>
-    <h3>{{ user.biography }}</h3>
-    <h3>{{ user.phone_number }}</h3>
-    <h3>{{ user.birthday_date }}</h3>
+<div class="form-block">
+    <p class="form-title">Bei Konto anmelden</p>
+    <form method="post">
+        <button type="submit">Registrieren</button>
+    </form>
+</div>
 {% endblock %}
