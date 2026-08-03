@@ -1,7 +1,7 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from django.http import HttpResponse
 from .models import News, Schoolclasses, Customuser
-from .forms import AddNewForm, LoginForm, RegisterForm
+from .forms import AddNewForm, LoginForm, RegisterForm, UserSettings
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login, logout
 
@@ -44,7 +44,7 @@ def account(request):
     account = request.user
     message = ""
     if request.method == "POST":
-        form = AddNewForm(request.POST, request.FILES)
+        form = UserSettings(request.POST, request.FILES)
         if form.is_valid():
             try:
                 name = form.cleaned_data["name"]
@@ -66,7 +66,7 @@ def account(request):
             "phone_user": account.phone_number, 
             "password_user": account.password, 
             "bio_user": account.biography}
-    form = AddNewForm(initial = data)
+    form = UserSettings(initial = data)
     context = {"account": account, "form": form}
     return render(request, "main/account.html", context, message)
 
