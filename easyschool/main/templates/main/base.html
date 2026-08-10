@@ -39,10 +39,10 @@
 
     <div class="logout-window-wrapper" id="logout-window-wrapper" style="display: none;">
         <div class="logout-window">
-            <h2>Точно хотите выйти?</h2>
+            <h2>Ausloggen</h2>
             <div class="buttons-row">
-                <button type="button" id="decline-button">Нет</button>
-                <a href="{% url 'logout' %}">Да</a>
+                <button type="button" id="decline-button">Nein</button>
+                <a href="{% url 'logout' %}">Ja</a>
             </div>
         </div>
     </div>
@@ -53,7 +53,6 @@
         const logoutWindowWrapper = document.querySelector('#logout-window-wrapper');
 
         logoutButton.addEventListener('click', () => {
-            console.log("Клик");
             logoutWindowWrapper.style.display = 'flex';
         })
         const closeModal = () => {

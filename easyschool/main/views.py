@@ -68,7 +68,7 @@ def account(request):
             "bio_user": account.biography}
     form = UserSettings(initial = data)
     context = {"account": account, "form": form}
-    return render(request, "main/account.html", context, message)
+    return render(request, "main/account.html", context)
 
 
 def register(request):

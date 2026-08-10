@@ -20,6 +20,6 @@
 {% block content %}
 <h1>Die Klassen</h1>
     {% for class in classes %}
-        <div>{{ class.class_name }} Level: {{ class.class_level }} <a class="tag_a_class" href="{% url 'classinfos' classinfos_pk=class.pk %}">Klasseninfos</a></div>
+        <div class="class_box"><div class="class_lvl"> <div class="minibox">{{ class.class_name }}</div><div class="minibox">Level: {{ class.class_level }}</div> </div> <a class="tag_a_class" href="{% url 'classinfos' classinfos_pk=class.pk %}">Klasseninfos</a></div>
     {% endfor %}
-{% endblock %}
+{% endblock %}<undefined>Level: {{ class.class_level }}</undefined>
